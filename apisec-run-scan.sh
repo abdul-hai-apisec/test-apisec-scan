@@ -71,10 +71,7 @@ while [ "$taskStatus" == "WAITING" -o "$taskStatus" == "PROCESSING" ]
                         if [ "$OUTPUT_FILENAME" != "" ];
                          then
                          sarifoutput=$(curl --insecure --location --request GET "https://developer.apisec.ai/api/v1/projects/${projectId}/sarif" --header "Authorization: Bearer "$token""| jq '.data')
-						 printf $sarifoutput >> $OUTPUT_FILENAME
-						 
-						 echo $sarifoutput
-						 
+						 echo $sarifoutput >> $GITHUB_WORKSPACE/$OUTPUT_FILENAME
 						 echo "SARIF output file created successfully"
                         fi
                         exit 0
