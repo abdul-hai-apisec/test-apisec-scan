@@ -28,8 +28,8 @@ echo "The request is https://developer.apisec.ai/api/v1/runs/projectName/${PROJE
 
 data=$(curl --insecure --location --request POST "https://developer.apisec.ai/api/v1/runs/projectName/${PROJECT}${PARAM_SCRIPT}" --header "Authorization: Bearer "$token"" | jq '.data')
 
-runId=$("$data" | jq '.id')
-projectId=$("$data" | jq '.job.project.id')
+runId=$( jq -r '.id' <<< "$data")
+projectId=$( jq -r '.job.project.id' <<< "$data")
 
 echo "runId =" $runId
 if [ -z "$runId" ]
