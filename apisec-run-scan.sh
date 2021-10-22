@@ -1,6 +1,5 @@
 #!/bin/bash
 # Begin
-
 USER=$1
 PWD=$2
 PROJECT=$3
