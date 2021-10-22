@@ -72,6 +72,11 @@ while [ "$taskStatus" == "WAITING" -o "$taskStatus" == "PROCESSING" ]
                          then
                          sarifoutput=$(curl --insecure --location --request GET "https://developer.apisec.ai/api/v1/projects/${projectId}/sarif" --header "Authorization: Bearer "$token""| jq '.data')
 						 printf $sarifoutput >> $OUTPUT_FILENAME
+						 
+						 echo "The current working directory: $PWD"
+						 
+						 printf "%s" "$(<$OUTPUT_FILENAME)"
+						 
 						 echo "SARIF output file created successfully"
                         fi
                         exit 0
