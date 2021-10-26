@@ -31,7 +31,7 @@ jobs:
           apisec-password: ${{ secrets.apisec_password}}
            # The id of the project for security scan
           apisec-project: "VAmPI"
-          #apisec-region: "Super_1"
+          apisec-region: "Super_2"
           sarif-result-file: "apisec-results.sarif"
        - name: Import Results
          uses: github/codeql-action/upload-sarif@v1
